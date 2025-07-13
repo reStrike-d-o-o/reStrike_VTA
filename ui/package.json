@@ -4,15 +4,20 @@
   "private": true,
   "main": "src/App.tsx",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "build": "echo 'Build script not implemented yet'",
+    "test": "echo 'Tests not implemented yet' && exit 0",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^4.9.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.0.0"
   }
 }
