@@ -6,15 +6,19 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  lint-and-test:
+  ui-lint-build-test:
+    name: UI - Lint, Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ui/package-lock.json
 
       - name: Install UI dependencies
         working-directory: ui
@@ -24,21 +28,36 @@ jobs:
         working-directory: ui
         run: npm run lint
 
+      - name: Build UI
+        working-directory: ui
+        run: npm run build
+
       - name: Test UI
         working-directory: ui
-        run: npm test
+        run: npm test -- --coverage --watchAll=false
+
+  backend-lint-build-test:
+    name: Backend - Lint, Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: actions-rs/toolchain@v1
+        uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: stable
+          components: rustfmt, clippy
 
-      - name: Format check
-        run: cargo fmt -- --check
+      - name: Check Rust formatting
+        run: cargo fmt --check
 
-      - name: Lint Rust
+      - name: Lint Rust code
         run: cargo clippy -- -D warnings
 
+      - name: Build Rust backend
+        run: cargo build --verbose
+
       - name: Run Rust tests
-        run: cargo test
+        run: cargo test --verbose
 
