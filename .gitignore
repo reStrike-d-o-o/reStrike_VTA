@@ -7,6 +7,14 @@ dist/
 # Tauri
 src-tauri/
 
+# Rust
+target/
+Cargo.lock
+
+# Database
+*.db
+*.sqlite
+
 # Logs
 *.log
 
