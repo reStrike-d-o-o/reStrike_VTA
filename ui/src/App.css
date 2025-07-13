@@ -1,0 +1,94 @@
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar {
+  background-color: #2c3e50;
+  color: white;
+  transition: width 0.3s ease, height 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 150px;
+  height: 150px;
+}
+
+.sidebar.expanded {
+  width: 300px;
+  height: 100vh;
+}
+
+.sidebar-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ecf0f1;
+}
+
+.hotkey-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* Hide content when collapsed */
+.sidebar.collapsed .sidebar-title {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-content {
+  display: none;
+}
+
+.sidebar.collapsed .hotkey-hint {
+  display: none;
+}
