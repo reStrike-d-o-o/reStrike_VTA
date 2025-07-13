@@ -1,0 +1,13 @@
+[package]
+name = "reStrike_VTA"
+version = "0.1.0"
+edition = "2021"
+description = "Overlay and automation toolkit for VTA using Tauri and React"
+authors = ["damjanZGB"]
+license = "MIT"
+
+[[bin]]
+name = "reStrike_VTA"
+path = "src/main.rs"
+
+[dependencies]

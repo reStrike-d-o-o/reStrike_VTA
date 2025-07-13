@@ -24,6 +24,10 @@ jobs:
         working-directory: ui
         run: npm run lint
 
+      - name: Build UI
+        working-directory: ui
+        run: npm run build
+
       - name: Test UI
         working-directory: ui
         run: npm test
@@ -38,6 +42,9 @@ jobs:
 
       - name: Lint Rust
         run: cargo clippy -- -D warnings
+
+      - name: Build Rust
+        run: cargo build
 
       - name: Run Rust tests
         run: cargo test
