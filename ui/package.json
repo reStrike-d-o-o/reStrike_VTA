@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.36.0",
