@@ -3,4 +3,14 @@ name = "restrike_vta"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "restrike_vta"
+path = "src/lib.rs"
+
+[[bin]]
+name = "restrike_vta"
+path = "src/main.rs"
+
 [dependencies]
+obws = "0.14"
+tokio = { version = "1", features = ["full"] }
