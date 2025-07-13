@@ -7,6 +7,14 @@ dist/
 # Tauri
 src-tauri/
 
+# Rust
+target/
+Cargo.lock
+
+# React Build
+ui/build/
+ui/coverage/
+
 # Logs
 *.log
 
