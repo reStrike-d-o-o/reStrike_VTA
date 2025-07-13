@@ -1,0 +1,25 @@
+[package]
+name = "restrike-vta"
+version = "0.1.0"
+edition = "2021"
+description = "Overlay and automation toolkit for VTA using Tauri and React"
+authors = ["damjanZGB"]
+license = "MIT"
+repository = "https://github.com/damjanZGB/reStrike_VTA"
+
+[[bin]]
+name = "restrike-vta"
+path = "src/main.rs"
+
+[dependencies]
+# Add dependencies here as needed
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+# Add test dependencies here as needed
+
+[lib]
+name = "restrike_vta_lib"
+path = "src/lib.rs"
